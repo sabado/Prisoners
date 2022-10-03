@@ -1,0 +1,31 @@
+#!/usr/bin/php
+<?PHP 
+require __DIR__ . '/../vendor/autoload.php';
+$PrisonersCount = $argv[1] ?? 100;
+$SimulationSize = $argv[2] ?? 10000;
+$JsonOutput = $argv[3] ?? false;
+echo 'Simulating a ', $PrisonersCount, ' Prisoners experiment.', PHP_EOL;
+echo 'Simulation size is ', $SimulationSize, PHP_EOL;
+
+$Live = 0;
+$Data = [];
+for( $sim = 1; $sim <= $SimulationSize; $sim++ ){
+    $Prisoners = Rama\Veritasium\Prisoners::Create($PrisonersCount);
+    $Room = Rama\Veritasium\Rooms::Create($PrisonersCount);
+    foreach( $Prisoners as $Prisoner => $Attempts ){
+        $Prisoners[$Prisoner] = Rama\Veritasium\Prisoners::Go($Prisoner, $Room );
+    }
+    $TheyLive = Rama\Veritasium\Prisoners::Calculate( $Prisoners );    
+    $Live += ( $TheyLive ) ? 1 : 0;
+    $Data[] =  $TheyLive;
+}
+echo 'Simulation results: ', PHP_EOL;
+echo '  They Live: ', $Live, PHP_EOL;
+echo '  They Dead: ', $SimulationSize - $Live, PHP_EOL;
+echo '  Live Rate: ', ($Live * 100 ) / $SimulationSize  , ' %', PHP_EOL;
+
+
+
+
+
+

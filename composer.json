@@ -1,0 +1,21 @@
+{
+    "name": "rama/veritasium",
+    "description": "The Riddle That Seems Impossible Even If You Know The Answer",
+    "type": "project",
+    "license": "opensource",
+    "autoload": {
+        "psr-4": {
+            "Rama\\Veritasium\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rama",
+            "email": "ramiro@iduco.xyz"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "codedungeon/php-cli-colors": "~1.0"
+    }
+}
