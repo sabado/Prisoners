@@ -5,12 +5,12 @@
     "license": "opensource",
     "autoload": {
         "psr-4": {
-            "Rama\\Veritasium\\": "src/"
+            "Sabado\\Veritasium\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Rama",
+            "name": "Ramiro Ricoy",
             "email": "ramiro@iduco.xyz"
         }
     ],
