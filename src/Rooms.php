@@ -1,4 +1,4 @@
-<?PHP namespace Rama\Veritasium;
+<?PHP namespace Sabado\Veritasium;
 use Codedungeon\PHPCliColors\Color;
 
 Class Rooms{
