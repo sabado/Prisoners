@@ -7,14 +7,14 @@ use Codedungeon\PHPCliColors\Color;
 $PrisonersCount = $argv[1] ?? 100;
 $ShowGraphs = $argv[2] ?? false;
 echo PHP_EOL, '* ',Color::BOLD, 'Using ', $PrisonersCount, ' Prisoners', Color::RESET, PHP_EOL, PHP_EOL;
-$Prisoners = Rama\Veritasium\Prisoners::Create($PrisonersCount);
-$Room = Rama\Veritasium\Rooms::Create($PrisonersCount);
+$Prisoners = Sabado\Veritasium\Prisoners::Create($PrisonersCount);
+$Room = Sabado\Veritasium\Rooms::Create($PrisonersCount);
 echo '* ',Color::LIGHT_BLUE, 'Room Distribution ', Color::RESET, Color::LIGHT_GRAY, '( box -> prisoner ) ', Color::RESET, PHP_EOL;
-if( $ShowGraphs ) Rama\Veritasium\Rooms::Graph( $Room );
+if( $ShowGraphs ) Sabado\Veritasium\Rooms::Graph( $Room );
 foreach( $Prisoners as $Prisoner => $Attempts ){
-    $Prisoners[$Prisoner] = Rama\Veritasium\Prisoners::Go($Prisoner, $Room );
+    $Prisoners[$Prisoner] = Sabado\Veritasium\Prisoners::Go($Prisoner, $Room );
 }
-if( $ShowGraphs ) Rama\Veritasium\Prisoners::Graph( $Prisoners);
-$TheyLive = Rama\Veritasium\Prisoners::Calculate( $Prisoners );
+if( $ShowGraphs ) Sabado\Veritasium\Prisoners::Graph( $Prisoners);
+$TheyLive = Sabado\Veritasium\Prisoners::Calculate( $Prisoners );
 echo PHP_EOL;
 echo 'Final Result: They ', ( $TheyLive ) ? Color::LIGHT_GREEN . 'win' : Color::LIGHT_RED . 'loose', Color::RESET, PHP_EOL;

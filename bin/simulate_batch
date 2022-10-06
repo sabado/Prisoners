@@ -10,12 +10,12 @@ echo 'Simulation size is ', $SimulationSize, PHP_EOL;
 $Live = 0;
 $Data = [];
 for( $sim = 1; $sim <= $SimulationSize; $sim++ ){
-    $Prisoners = Rama\Veritasium\Prisoners::Create($PrisonersCount);
-    $Room = Rama\Veritasium\Rooms::Create($PrisonersCount);
+    $Prisoners = Sabado\Veritasium\Prisoners::Create($PrisonersCount);
+    $Room = Sabado\Veritasium\Rooms::Create($PrisonersCount);
     foreach( $Prisoners as $Prisoner => $Attempts ){
-        $Prisoners[$Prisoner] = Rama\Veritasium\Prisoners::Go($Prisoner, $Room );
+        $Prisoners[$Prisoner] = Sabado\Veritasium\Prisoners::Go($Prisoner, $Room );
     }
-    $TheyLive = Rama\Veritasium\Prisoners::Calculate( $Prisoners );    
+    $TheyLive = Sabado\Veritasium\Prisoners::Calculate( $Prisoners );    
     $Live += ( $TheyLive ) ? 1 : 0;
     $Data[] =  $TheyLive;
 }
