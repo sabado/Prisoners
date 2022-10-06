@@ -1,7 +1,19 @@
 # Prisoners
 
-Yesterday i seen this [Veritasium episode](https://www.youtube.com/watch?v=iSNsgj1OCLA) about a prisoners riddle and decided to simulate the answer. 
+I decided to test if what i seen in this [Veritasium episode](https://www.youtube.com/watch?v=iSNsgj1OCLA) is true or not. This is a simulator for one experiment, o a batch.  Is written in php and runs in cli. 
 
+Each box number are shuffled using php `rand()` function to create a room. When rand provides a number, a new box is placed to the room. The number is discarded in case already exists. This numbers selection will be repeated until all required box are placed in the room.
+
+That logic is algo used for populating prisioner number inside each box. The boxes then are picked in the same order was created, in this way first box is not necesary the box number one.   
+
+
+![simulate_one output](https://github.com/sabado/Prisoners/blob/main/media/simulate_one.png?raw=true)
+
+ 
+For multiple simulations at once with different sizes of prisoners, a batch is itherated using `simulate_batch`
+
+
+![simulate_batch output](https://github.com/sabado/Prisoners/blob/main/media/simulate_batch.png)
 
 
 # Install
@@ -60,3 +72,5 @@ Simulation results:
   Live Rate: 31 %
   ```
 
+# License 
+Opensource! Use and contribute if you want :)
